@@ -4,9 +4,15 @@
   "name": "Krysztal's Language Scala",
   "description": "Krysztal's fork of fabric language module for Scala.",
   "version": "${version}",
+  "license": "Apache License",
   "languageAdapters": {
     "scala": "net.fabricmc.language.scala.ScalaLanguageAdapter"
   },
+  "contact": {
+    "sources": "https://github.com/Krysztal112233/krysztal-language-scala",
+    "issues": "https://github.com/Krysztal112233/krysztal-language-scala/issues"
+  },
+  "environment": "*",
   "icon": "assets/icon.png",
   "conflicts": {
     "fabric-language-scala": "*"
