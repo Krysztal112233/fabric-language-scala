@@ -2,25 +2,27 @@ plugins {
 	id 'java-library'
 	id 'scala'
 	id 'maven-publish'
-	id 'fabric-loom' version '1.5-SNAPSHOT'
+	id 'fabric-loom' version '1.3-SNAPSHOT'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 archivesBaseName = project.archives_base_name
 group = project.maven_group
 
-version = mod_version + "+scala." + project.scala_version + (System.getenv('GITHUB_ACTIONS') ? "" : ".local")
+version = mod_version + "+scala." + project.scala_version
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	
+	compileOnly 'org.projectlombok:lombok:1.18.32'
+	annotationProcessor 'org.projectlombok:lombok:1.18.32'
+
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Scala Dependencies
-	api(include("org.scala-lang:scala3-library_3:${project.scala_version}"))
-	// Dependent by Scala3
-	api(include("org.scala-lang:scala-library:2.13.12"))
+	include(api("org.scala-lang:scala3-library_3:${project.scala_version}"))
+	include(api("org.scala-lang:scala-library:2.13.12"))
 }
 
 processResources {
@@ -35,13 +37,17 @@ java {
 	withSourcesJar()
 }
 
+tasks.withType(GenerateModuleMetadata).configureEach {
+    enabled = false
+}
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
             groupId = project.group
             artifactId = project.name.toLowerCase()
             version = project.version
-
+            artifact(tasks.jar)
             from components.java
         }
     }

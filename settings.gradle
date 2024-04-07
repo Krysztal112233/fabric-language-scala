@@ -8,4 +8,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "fabric-language-scala"
+rootProject.name = "krysztal-language-scala"
