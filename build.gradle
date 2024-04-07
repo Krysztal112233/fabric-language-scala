@@ -37,6 +37,12 @@ java {
 	withSourcesJar()
 }
 
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.archivesBaseName}" }
+    }
+}
+
 tasks.withType(GenerateModuleMetadata).configureEach {
     enabled = false
 }
