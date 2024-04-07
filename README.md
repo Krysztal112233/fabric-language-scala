@@ -38,9 +38,7 @@ plugins {
 }
 
 dependencies {
-	modImplementation "dev.krysztal:krysztal-language-scala:3.0.0+scala.3.3.3:dev"
-  implementation "org.scala-lang:scala3-library_3:3.3.3"
-	implementation "org.scala-lang:scala-library:2.13.11"
+	modImplementation "dev.krysztal:krysztal-language-scala:3.0.0+scala.3.3.3"
 }
 ```
 
