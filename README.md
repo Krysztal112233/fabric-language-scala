@@ -33,12 +33,23 @@ Please notice,the `krysztal-language-scala` only support Scala's `object` now.
 Add those lines to your project's `build.gradle`
 
 ```groovy
+
 plugins {
+  ...
 	id 'scala' // Add `scala` plugin for gradle
+  ...
+}
+
+repositories {
+  ...
+	maven { url "https://maven.dragons.plus/releases" }
+  ...
 }
 
 dependencies {
+  ...
 	modImplementation "dev.krysztal:krysztal-language-scala:3.0.0+scala.3.3.3"
+  ...
 }
 ```
 

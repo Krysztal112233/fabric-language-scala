@@ -52,12 +52,13 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             groupId = project.group
-            artifactId = project.name.toLowerCase()
-            version = project.version
+            artifactId = project.name
+            version = version
             artifact(tasks.jar)
             from components.java
         }
     }
+
 	repositories {
 		if (System.getenv('MAVEN_URL')) {
 			maven {
