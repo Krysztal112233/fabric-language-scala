@@ -19,14 +19,15 @@ So I decided to fork it and maintain it myself and implement it to be compatible
 
 ## Bundled libraries
 
-Actually, I think bundled Scala3's standard library is enough.
+From a number of perspectives, the library needs to bind some popular scala libraries.
 
-- scala3-library_3
-- scala-library # Required by Scala3
+- `org.scala-lang:scala3-library_3:3.3.3`
+- `org.scala-lang:scala-library:2.13.12`
+- `org.typelevel:cats-core_3:2.12.0`
+- `com.chuusai:shapeless_2.13:2.3.12`
+- `org.typelevel:mouse_3:1.3.1`
 
 ## How to use?
-
-Please notice,the `krysztal-language-scala` only support Scala's `object` now.
 
 ### Add dependence
 
@@ -53,7 +54,36 @@ dependencies {
 }
 ```
 
-### Create entry
+### Usage: `class`
+
+Suppose your entry name is `ExampleEntry.scala`
+
+```scala
+import net.fabricmc.api.ModInitializer;
+
+class ExampleEntry extends ModInitializer {
+   lazy val logger = LoggerFactory.getLogger("KMMO")
+   override def onInitialize(): Unit = {
+       logger.info("Hi")
+   }
+}
+```
+
+And in `fabric.mod.json`
+
+```json
+    ...
+ "entrypoints": {
+    "main": [
+      "dev.example.ExampleEntry"
+    ],
+  },
+    ...
+```
+
+But thanks to Scala's excellent interoperability with Java, we can use this library simply as a Java entry point :)
+
+### Usage: `object`
 
 Suppose your entry name is `ExampleEntry.scala`
 
@@ -66,16 +96,9 @@ object ExampleEntry extends ModInitializer {
         logger.info("Hi")
     }
 }
-
 ```
 
-**_ONLY `object` supported now!_**
-
-`class` will be supported later, but `object` is enough.
-
-### Modify `fabric.mod.json`
-
-Suppose your entry in `dev.example`
+And in `fabric.mod.json`
 
 ```json
     ...
