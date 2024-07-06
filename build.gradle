@@ -24,6 +24,9 @@ dependencies {
 
 	include(api("org.scala-lang:scala3-library_3:${project.scala_version}"))
 	include(api("org.scala-lang:scala-library:2.13.12"))
+	include(api("org.typelevel:cats-core:2.9.0"))
+	include(api("com.chuusai:shapeless:2.3.3"))
+	include(api("org.typelevel:mouse_2.12:1.3.1"))
 }
 
 processResources {
@@ -62,10 +65,10 @@ publishing {
 	repositories {
 		if (System.getenv('MAVEN_URL')) {
 			maven {
-				url System.getenv('MAVEN_URL')
+				url ENV.MAVEN_URL
 				credentials {
-					username System.getenv('MAVEN_USERNAME')
-					password System.getenv('MAVEN_PASSWORD')
+					username ENV.MAVEN_USERNAME
+					password ENV.MAVEN_PASSWORD
 				}
 			}
 		}
@@ -92,7 +95,6 @@ publishMods {
 
     curseforge {
         projectId = "999484"
-        projectSlug = "example-project" // Required for discord webhook
         accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
         minecraftVersions.add("1.20.1")
         requires("fabric-api")
