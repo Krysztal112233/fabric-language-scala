@@ -44,15 +44,13 @@ plugins {
 
 repositories {
   ...
-    maven {
-        url = "https://api.modrinth.com/maven"
-    }
+	maven { url "https://maven.dragons.plus/releases" }
   ...
 }
 
 dependencies {
   ...
-	modImplementation "maven.modrinth:krysztal-language-scala:${project.kls_version}+scala.${project.scala_version}"
+	modImplementation "dev.krysztal:krysztal-language-scala:${project.kls_version}+scala.${project.scala_version}"
   ...
 }
 ```
