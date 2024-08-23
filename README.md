@@ -17,7 +17,6 @@ So I decided to fork it and maintain it myself and implement it to be compatible
 ## NOTE
 
 - This language adaptor will synchronize content upstream as much as possible and will ensure availability as much as possible.
-- This language adaptor _**only provide LTS version of Scala3**_
 
 ## Bundled libraries
 
