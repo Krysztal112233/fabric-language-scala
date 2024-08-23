@@ -1,8 +1,8 @@
 # Krysztal's fork of fabric-language-scala
 
-![Modrinth Version](https://img.shields.io/modrinth/v/Ptd0Ha1s?style=flat&logo=modrinth&labelColor=green) ![CurseForge Version](https://img.shields.io/curseforge/v/999484?style=flat&logo=curseforge&labelColor=red)
+![Modrinth Version](https://img.shields.io/modrinth/v/Ptd0Ha1s?style=flat&logo=modrinth&labelColor=green)
 
-This is a fork of fabric-language-scala,support the newest LTS Scala3 version and bundled Scala Library.
+This is a fork of fabric-language-scala, support the newest Scala3 version and bundled Scala Library.
 
 ## Why fork?
 
@@ -44,13 +44,15 @@ plugins {
 
 repositories {
   ...
-	maven { url "https://maven.dragons.plus/releases" }
+    maven {
+        url = "https://api.modrinth.com/maven"
+    }
   ...
 }
 
 dependencies {
   ...
-	modImplementation "dev.krysztal:krysztal-language-scala:$VERSION$"
+	modImplementation "maven.modrinth:krysztal-language-scala:${project.kls_version}+scala.${project.scala_version}"
   ...
 }
 ```
