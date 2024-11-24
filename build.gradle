@@ -63,12 +63,12 @@ publishing {
     }
 
 	repositories {
-		if (System.getenv('MAVEN_DRAGON_URL')) {
+		if (System.getenv('MAVEN_URL')) {
 			maven {
-				url System.getenv('MAVEN_DRAGON_URL')
+				url System.getenv('MAVEN_URL')
 				credentials {
-					username System.getenv('MAVEN_DRAGON_USERNAME')
-					password System.getenv('MAVEN_DRAGON_PASSWORD')
+					username System.getenv('MAVEN_USERNAME')
+					password System.getenv('MAVEN_PASSWORD')
 				}
 			}
 		}
