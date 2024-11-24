@@ -96,7 +96,6 @@ publishMods {
     curseforge {
         projectId = "999484"
         accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
-        minecraftVersions.add("1.20.1")
         requires("fabric-api")
 		minecraftVersionRange {
             start = "1.17"
@@ -114,7 +113,7 @@ publishMods {
     }
     github {
         repository = "Krysztal112233/krysztal-language-scala"
-        accessToken = providers.environmentVariable("GITHUB_PUBLISH_TOKEN")
+        accessToken = providers.environmentVariable("GITHUB_TOKEN")
         commitish = "krysztal"
 		tagName = version
     }
