@@ -22,8 +22,6 @@ So I decided to fork it and maintain it myself and implement it to be compatible
 
 From a number of perspectives, the library needs to bind some popular scala libraries.
 
-- `org.scala-lang:scala3-library_3:3.3.3`
-- `org.scala-lang:scala-library:2.13.12`
 - `org.typelevel:cats-core_3:2.12.0`
 - `com.chuusai:shapeless_2.13:2.3.12`
 - `org.typelevel:mouse_3:1.3.1`
@@ -44,7 +42,7 @@ plugins {
 
 repositories {
   ...
-	maven { url "https://maven.dragons.plus/releases" }
+	maven { url "https://maven.krysztal.dev/releases" }
   ...
 }
 

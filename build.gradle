@@ -93,15 +93,6 @@ publishMods {
     modLoaders.add("fabric")
 	changelog = "no changelogs"
 
-    curseforge {
-        projectId = "999484"
-        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
-        requires("fabric-api")
-		minecraftVersionRange {
-            start = "1.17"
-            end = "latest" // Set to "latest" to use the latest minecraft version
-        }
-    }
     modrinth {
 		minecraftVersionRange {
             start = "1.17"
